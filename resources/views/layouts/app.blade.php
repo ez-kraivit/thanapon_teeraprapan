@@ -28,6 +28,7 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
+
 </head>
 
 <body id="page-top" style="font-family:'Prompt',sans-serif;">
@@ -56,7 +57,12 @@
             <li class="nav-item ">
                 <a class="nav-link" href="{{route('list.csv')}}">
                     <i class="fas fa-fw fa-cogs"></i>
-                    <span>รายาการย้อนหลัง</span></a>
+                    <span>รายาการย้อนหลัง ทั้งหมด</span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{route('list.csv.month')}}">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>รายการย้อน หลังรายเดือน</span></a>
             </li>
 
 

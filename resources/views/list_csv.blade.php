@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title','รายการย้อนหลัง')
+@section('title','รายการย้อนหลัง ทั้งหมด')
 @section('content')
 <div class="card shadow mb-4">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">ตาราง บันทึกย้อนหลัง</div>
+                <div class="card-header">ตาราง บันทึกย้อนหลัง ทั้งหมด</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table table-hover" id="dataTable" width="100%" cellspacing="0">

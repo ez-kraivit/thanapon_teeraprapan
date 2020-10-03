@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 use App\Bill;
-use PDF;
 
 class GeneralController extends Controller
 {
@@ -19,6 +19,16 @@ class GeneralController extends Controller
             $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
 
             return view('list_csv')->with(['bill' => $bill]);
+        } catch (\Throwable $th) {
+            return redirect(route('home'));
+        }
+    }
+    public function indexlistcsvmonth()
+    {
+        try {
+            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
+
+            return view('list_month')->with(['bill' => $bill]);
         } catch (\Throwable $th) {
             return redirect(route('home'));
         }
@@ -124,5 +134,17 @@ class GeneralController extends Controller
         // $pdf = PDF::loadView('print', compact('bill'));
         // return $pdf->download($id . '.pdf');
         // PDF::loadView('print', ['bill' => $bill])->download($id . '.pdf');
+    }
+    public static function check_csv_month(Request $request)
+    {
+        try {
+            $startdate = Carbon::parse($request->startdate)->format('Y-m-d');
+            $enddate = Carbon::parse($request->enddate)->format('Y-m-d');
+            $bill = Bill::whereBetween('updated_at', [$startdate, $enddate])->get();
+            // dd($bill);
+            return view('print_month')->with(['bills' => $bill]);
+        } catch (\Throwable $th) {
+            return redirect(route('home'));
+        }
     }
 }
