@@ -168,5 +168,11 @@
     </div>
     @endforeach
 </body>
+<script>
+    $(function () {
+        window.print();
+    });
+
+</script>
 
 </html>

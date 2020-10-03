@@ -15,7 +15,7 @@
                             <label>Start Date:</label>
                             <div class="input-group">
                                 <input id="datepicker1" name="startdate" class="form-control"
-                                    value="{{Carbon\Carbon::now()->format('d/m/Y')}}" required />
+                                    value="{{Carbon\Carbon::now()->format('m/d/Y')}}" required />
                                 <script>
                                     $('#datepicker1').datepicker({
                                         uiLibrary: 'bootstrap4'
@@ -54,6 +54,17 @@
         title: 'แจ้งเตือน',
         text: 'ระบบทำการลบข้อมูล CSV เรียบร้อยแล้ว',
         icon: 'success',
+        showConfirmButton: false,
+        timer: 3500
+    });
+
+</script>
+@elseif(Session::has('NotData'))
+<script>
+    Swal.fire({
+        title: 'แจ้งเตือน',
+        text: 'ระบบทำการค้นหาไม่พบข้อมูล วันที่ค้นหา',
+        icon: 'error',
         showConfirmButton: false,
         timer: 3500
     });

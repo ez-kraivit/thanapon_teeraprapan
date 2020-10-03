@@ -140,9 +140,12 @@ class GeneralController extends Controller
         try {
             $startdate = Carbon::parse($request->startdate)->format('Y-m-d');
             $enddate = Carbon::parse($request->enddate)->format('Y-m-d');
-            $bill = Bill::whereBetween('updated_at', [$startdate, $enddate])->get();
-            // dd($bill);
-            return view('print_month')->with(['bills' => $bill]);
+            $bill = Bill::whereBetween('updated_at', [$startdate, $enddate])->where('status', '=', 'on')->get();
+            if (count($bill) > 0) {
+                return view('print_month')->with(['bills' => $bill]);
+            } else {
+                return redirect(route('list.csv.month'))->with(['NotData' => 'ข้อมูลไม่มี']);
+            }
         } catch (\Throwable $th) {
             return redirect(route('home'));
         }
