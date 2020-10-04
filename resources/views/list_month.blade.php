@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">ตาราง บันทึกย้อนหลัง รายเดือน</div>
                 <div class="card-body">
-                    <form action="{{route('check.csv.month')}}" method="get" autocomplete="off">
+                    <form action="{{route('check.csv.month')}}" method="get" autocomplete="off" target="_blank">
                         @csrf
                         <div class="form-group">
                             <label>Start Date:</label>
