@@ -88,7 +88,7 @@
                 <td style="text-align: center"><span class="number">{{$bill->cevita}}</span></td>
                 <td style="text-align: center"><span class="unit">กล่อง</span></td>
                 <td style="text-align: center"><span class="unit_price">690</span></td>
-                <td style="text-align: center"><span class="price">690</span></td>
+                <td style="text-align: center"><span class="price">{{($bill->cevita)*690}}</span></td>
             </tr>
             @endif
             @if ($bill->celery!="0")
@@ -101,7 +101,7 @@
                 <td style="text-align: center"><span class="number">{{$bill->celery}}</span></td>
                 <td style="text-align: center"><span class="unit">กล่อง</span></td>
                 <td style="text-align: center"><span class="unit_price">390</span></td>
-                <td style="text-align: center"><span class="price">390</span></td>
+                <td style="text-align: center"><span class="price">{{($bill->celery)*390}}</span></td>
             </tr>
             @endif
             @if ($bill->orinca_coffee!="0")
@@ -114,7 +114,7 @@
                 <td style="text-align: center"><span class="number">{{$bill->orinca_coffee}}</span></td>
                 <td style="text-align: center"><span class="unit">กล่อง</span></td>
                 <td style="text-align: center"><span class="unit_price">290</span></td>
-                <td style="text-align: center"><span class="price">290</span></td>
+                <td style="text-align: center"><span class="price">{{($bill->orinca_coffee)*290}}</span></td>
             </tr>
             @endif
             <tr class="item-row">
