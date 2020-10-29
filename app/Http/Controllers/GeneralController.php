@@ -71,7 +71,7 @@ class GeneralController extends Controller
         try {
             // dd(json_decode($request->csv_detail));
             $data = json_decode($request->csv_detail);
-
+            // dd($data);
             foreach ($data as $key) {
                 $random  = "BT" . $this->quickRandom(8);
                 $bill = Bill::create([

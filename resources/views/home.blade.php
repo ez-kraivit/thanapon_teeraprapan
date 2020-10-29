@@ -135,8 +135,8 @@
                                 .data_prod2 + '</td>';
                             html += '<td class="v3" contenteditable>' + data.row_data[count]
                                 .data_prod3 + '</td>';
-                            html += '<td class="v4" contenteditable>' + data.row_data[count]
-                                .data_total + '</td>';
+                            html += '<td class="v4" contenteditable>' + total +
+                                '</td>';
                             html += '<td class="Piceall" contenteditable>' + Picetotal
                                 .toFixed(
                                     2) + '</td>';
@@ -158,7 +158,7 @@
                                 "cevita": data.row_data[count].data_prod1,
                                 "celery": data.row_data[count].data_prod2,
                                 "orinca_coffee": data.row_data[count].data_prod3,
-                                "total": parseInt(total).toFixed(2),
+                                "total": total,
                                 "net_total": Picetotal.toFixed(2),
                                 "discount": Discount.toFixed(2),
                                 "vat": Tax.toFixed(2),
