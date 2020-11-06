@@ -14,7 +14,22 @@
     <link rel='stylesheet' type='text/css' href='{{asset('css/style_print.css')}}' />
     <script type='text/javascript' src='https://www.codebee.co.th/invoicemaker/js/jquery-1.3.2.min.js'></script>
     <script type='text/javascript' src='https://www.codebee.co.th/invoicemaker/js/invoicemaker.js'></script>
+    <style type="text/css">
+        @page {
+            size: auto;
+            margin: 0mm;
+        }
 
+    </style>
+    <style type="text/css" media="print">
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0;
+            /* this affects the margin in the printer settings */
+        }
+
+    </style>
 </head>
 
 <body>

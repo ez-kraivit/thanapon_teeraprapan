@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','รายการย้อนหลัง ทั้งหมด')
 @section('content')
+
 <div class="card shadow mb-4">
     <div class="row justify-content-center">
         <div class="col-md-12">
