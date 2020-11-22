@@ -38,13 +38,11 @@
 
         @media print {
 
-
             html,
             body {
                 width: 210mm;
                 height: 297mm;
             }
-
 
             .col-sm-1,
             .col-sm-2,
@@ -232,7 +230,12 @@
         </div>
     </div>
     <script src="{{asset('js/jspdf/dist/jspdf.customfonts.debug.js')}}"></script>
+    <script>
+        $(function () {
+            window.print();
+        });
 
+    </script>
 </body>
 
 </html>
