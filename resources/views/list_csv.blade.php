@@ -20,6 +20,7 @@
                                     <th scope="col" class="text-center">มูลค่าสินค้าหลังหักส่วนลด</th>
                                     <th scope="col" class="text-center">ภาษีมูลค่าเพิ่ม 7%</th>
                                     <th scope="col" class="text-center">ค่าจัดส่ง</th>
+                                    <th scope="col" class="text-center">ขนส่ง</th>
                                     <th scope="col" class="text-center">รวมเงิน</th>
                                     <th scope="col" class="text-center">สถานะ</th>
                                     <th scope="col" class="text-center">Actions</th>
@@ -44,9 +45,10 @@
                                     <th class="text-center">{{$item->products_value_discount}}</th>
                                     <th class="text-center">{{$item->vat}}</th>
                                     <th class="text-center">{{$item->shipping_cost}}</th>
+                                    <th class="text-center">{{$item->transport}}</th>
                                     <th class="text-center">{{$item->total}}</th>
                                     <th class="text-nowrap">
-                                        @if($item->status=='on')
+                                        @if($item->status=='on'||$item->status=='print')
                                         <div class="col-12 text-center">
                                             <h6>
                                                 <span class="badge badge-success">พร้อมใช้งาน</span>
@@ -113,6 +115,15 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <form action="{{route('printaddress')}}" method="get" target="_blank">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">ใบแปะกล่อง ครั้งละ 1 หน้า</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

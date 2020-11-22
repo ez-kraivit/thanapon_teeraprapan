@@ -16,7 +16,7 @@ class GeneralController extends Controller
     public function indexlistcsv()
     {
         try {
-            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
+            $bill = Bill::where('status', '=', 'on')->orWhere('status', '=', 'print')->orderBy('created_at', 'DESC')->get();
 
             return view('list_csv')->with(['bill' => $bill]);
         } catch (\Throwable $th) {
@@ -26,7 +26,7 @@ class GeneralController extends Controller
     public function indexlistcsvmonth()
     {
         try {
-            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
+            $bill = Bill::where('status', '=', 'on')->orWhere('status', '=', 'print')->orderBy('created_at', 'DESC')->get();
 
             return view('list_month')->with(['bill' => $bill]);
         } catch (\Throwable $th) {
@@ -37,6 +37,22 @@ class GeneralController extends Controller
     {
         try {
             return view('print_receipt');
+        } catch (\Throwable $th) {
+            return redirect(route('home'));
+        }
+    }
+    public function indexprintaddress()
+    {
+        try {
+            // $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
+
+            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->limit(28)->get();
+            foreach ($bill as $value) {
+                Bill::find($value->id)->update([
+                    "status" => "print"
+                ]);
+            }
+            return view('printaddress')->with(['bill' => $bill]);
         } catch (\Throwable $th) {
             return redirect(route('home'));
         }
@@ -58,7 +74,8 @@ class GeneralController extends Controller
                     'data_discount'  => $row[7],
                     'data_vat'  => $row[8],
                     'data_products_value_discount'  => $row[9],
-                    'data_shipping_cost' => $row[10]
+                    'data_shipping_cost' => $row[10],
+                    'data_transport' => $row[11],
                 );
             }
             return response()->json(['column' => $column, 'row_data' => $row_data]);
@@ -87,6 +104,7 @@ class GeneralController extends Controller
                     'total' => $key->total,
                     'status' => 'on',
                     'shipping_cost' => $key->shipping_cost,
+                    'transport' => $key->transport,
                     'updated_at' => $key->updated_at
                 ]);
             }

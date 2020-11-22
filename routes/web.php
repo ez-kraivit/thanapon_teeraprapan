@@ -26,7 +26,12 @@ Route::get('/checkcsvmonth', 'GeneralController@check_csv_month')->name('check.c
 
 Route::get('/download_csv/{number_bill}', 'GeneralController@donwloadcsv')->name('dowload.csv');
 
-Route::get('/print', 'GeneralController@indexprint')->name('print');
+// Route::get('/print', 'GeneralController@indexprint')->name('print');
+Route::get('/print', function () {
+    return view('print');
+});
+Route::get('/printaddress', 'GeneralController@indexprintaddress')->name('printaddress');
+
 
 Route::post('/importcsv', 'GeneralController@import_csv')->name('import.csv');
 Route::post('/checkcsv', 'GeneralController@check_csv')->name('check.csv');

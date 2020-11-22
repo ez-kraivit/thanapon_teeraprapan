@@ -114,6 +114,15 @@
                     if (data['row_data']) {
                         for (var count = 0; count < data.row_data.length; count++) {
                             shipping_cost = 50;
+                            data_transport = "";
+                            if (data.row_data[count].data_transport == "1") {
+                                transport = "ชำระผ่าน ธนาคาร"
+                            } else if (data.row_data[count].data_transport == "2") {
+                                transport = "ชำระผ่าน Shopee"
+                            } else {
+                                transport = "เก็บเงินปลายทาง"
+                            }
+
                             Cevitas = data.row_data[count].data_prod1 * 690;
                             Celerys = data.row_data[count].data_prod2 * 390;
                             Orincas = data.row_data[count].data_prod3 * 290;
@@ -151,6 +160,9 @@
                             html += '<td class="shipping_cost" contenteditable>' +
                                 shipping_cost.toFixed(2) + '</td>';
                             '</tr>';
+                            html += '<td class="shipping_cost" contenteditable>' +
+                                transport + '</td>';
+                            '</tr>';
 
                             objectrow = {
                                 "updated_at": data.row_data[count].data_date,
@@ -164,10 +176,9 @@
                                 "vat": Tax.toFixed(2),
                                 "products_value_discount": Valueafterdeduction.toFixed(
                                     2),
-                                "shipping_cost": shipping_cost.toFixed(
-                                    2),
+                                "shipping_cost": shipping_cost.toFixed(2),
+                                "transport": transport,
                             }
-                            // console.log(objectrow)
                             arrayobject.push(objectrow)
                         }
                     }

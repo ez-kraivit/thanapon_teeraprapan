@@ -26,6 +26,7 @@ class CreateBillsTable extends Migration
             $table->text('net_total')->nullable(true);
             $table->text('total')->nullable(true);
             $table->text('shipping_cost')->nullable(true);
+            $table->text('transport')->nullable(true);
             $table->string('status')->nullable(true);
             $table->timestamps();
         });

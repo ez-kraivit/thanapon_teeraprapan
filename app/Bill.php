@@ -13,6 +13,6 @@ class Bill extends Model
      */
     protected $fillable = [
         'number_bill', 'detail', 'cevita', 'celery', 'orinca_coffee', 'discount',
-        'vat', 'net_total', 'total', 'status', 'products_value_discount', 'updated_at', 'shipping_cost'
+        'vat', 'net_total', 'total', 'status', 'products_value_discount', 'updated_at', 'shipping_cost', 'transport'
     ];
 }
