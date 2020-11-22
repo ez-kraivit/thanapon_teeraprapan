@@ -89,6 +89,7 @@ table th {
 
 #header_print {
     background: #eee;
+    /* สำหรับ Macbook จะต้องปิด Height:45px firefox */
     height: 45px;
     width: 100%;
     margin: 20px 0;
