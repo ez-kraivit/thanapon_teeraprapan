@@ -44,13 +44,13 @@ class GeneralController extends Controller
     public function indexprintaddress()
     {
         try {
-            // $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
-            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->limit(40)->get();
-            foreach ($bill as $value) {
-                Bill::find($value->id)->update([
-                    "status" => "print"
-                ]);
-            }
+            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
+            // $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->limit(24)->get();
+            // foreach ($bill as $value) {
+            //     Bill::find($value->id)->update([
+            //         "status" => "print"
+            //     ]);
+            // }
             return view('printaddress')->with(['bill' => $bill]);
         } catch (\Throwable $th) {
             return redirect(route('home'));

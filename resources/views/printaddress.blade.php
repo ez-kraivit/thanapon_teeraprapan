@@ -25,11 +25,10 @@
     </script>
 
     <style type="text/css" media="print">
-        /* @page {
+        @page {
             size: auto;
             margin: 0;
-        } */
-
+        }
 
         @page {
             size: A4;
@@ -42,74 +41,8 @@
             body {
                 width: 210mm;
                 height: 297mm;
+                font-size: 24px;
             }
-
-            .col-sm-1,
-            .col-sm-2,
-            .col-sm-3,
-            .col-sm-4,
-            .col-sm-5,
-            .col-sm-6,
-            .col-sm-7,
-            .col-sm-8,
-            .col-sm-9,
-            .col-sm-10,
-            .col-sm-11,
-            .col-sm-12 {
-                float: left;
-            }
-
-            .col-sm-12 {
-                width: 100%;
-            }
-
-            .col-sm-11 {
-                width: 91.66666667%;
-            }
-
-            .col-sm-10 {
-                width: 83.33333333%;
-            }
-
-            .col-sm-9 {
-                width: 75%;
-            }
-
-            .col-sm-8 {
-                width: 66.66666667%;
-            }
-
-            .col-sm-7 {
-                width: 58.33333333%;
-            }
-
-            .col-sm-6 {
-                width: 50%;
-            }
-
-            .col-sm-5 {
-                width: 41.66666667%;
-            }
-
-            .col-sm-4 {
-                width: 33.33333333%;
-            }
-
-            .col-sm-3 {
-                width: 25%;
-            }
-
-            .col-sm-2 {
-                width: 16.66666667%;
-            }
-
-            .col-sm-1 {
-                width: 8.33333333%;
-            }
-        }
-
-
-
 
         }
 
@@ -204,7 +137,7 @@
                     <div class="card-body " style="padding-top: 1.25rem;
                 padding-left: 1.25rem;
                 padding-right: 1.25rem;
-                padding-bottom: 1.25rem;">
+                padding-bottom: 0rem;">
                         <div class="card-text">
                             {{$item->detail}}
                         </div>
@@ -218,7 +151,7 @@
                             @if (($item->orinca_coffee) >0)
                             orinca_coffee : {{$item->orinca_coffee}},
                             @endif
-                            {{$item->transport}}
+                            ({{$item->total}} {{$item->transport}})
                         </div>
                     </div>
                 </div>
