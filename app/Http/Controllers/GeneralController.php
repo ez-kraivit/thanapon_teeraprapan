@@ -45,8 +45,7 @@ class GeneralController extends Controller
     {
         try {
             // $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->get();
-
-            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->limit(28)->get();
+            $bill = Bill::where('status', '=', 'on')->orderBy('created_at', 'DESC')->limit(40)->get();
             foreach ($bill as $value) {
                 Bill::find($value->id)->update([
                     "status" => "print"
