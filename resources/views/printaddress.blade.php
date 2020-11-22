@@ -201,8 +201,6 @@
             @foreach ($bill as $item)
             <div class="col-xs-3 col-md-3 col-sm-3  pb-2">
                 <div class="card h-100 ">
-                    <img src="{{asset('imgs/logo_csv.png')}}" class="card-img-top"
-                        alt="บริษัทเฟิร์ส คลาสบาร์เก็ตติ้ง จำกัด">
                     <div class="card-body " style="padding-top: 0rem;
                 padding-left: 1.25rem;
                 padding-right: 1.25rem;
